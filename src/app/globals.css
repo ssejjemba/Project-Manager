@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 /* Reset CSS */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; /* 1rem = 10px (assuming browser default font-size is 16px) */
