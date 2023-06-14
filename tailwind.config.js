@@ -20,6 +20,8 @@ module.exports = {
       lightLines: "hsl(221, 69%, 94%)",
       lightBg: "hsl(220, 69%, 97%)",
       white: "hsl(0, 0%, 100%)",
+      secondary: "hsla(242, 48%, 58%, 0.1)",
+      secondaryHover: "hsla(242, 48%, 58%, 0.25)",
     },
   },
   plugins: [],
