@@ -6,12 +6,14 @@ type Theme = "light" | "dark";
 
 interface Settings {
   theme: Theme;
+  activeBoardId: string | null;
   // Add more settings properties here
 }
 
 export class SettingsStore {
   settings: Settings = {
     theme: "light",
+    activeBoardId: null,
     // Initialize other settings properties here
   };
 
@@ -19,12 +21,18 @@ export class SettingsStore {
     makeObservable(this, {
       settings: observable,
       setTheme: action,
+      saveActiveBoardId: action,
     });
     this.loadSettings();
   }
 
   setTheme(theme: Theme): void {
     this.settings.theme = theme;
+    this.saveSettings();
+  }
+
+  saveActiveBoardId(boardId: string): void {
+    this.settings.activeBoardId = boardId;
     this.saveSettings();
   }
 
