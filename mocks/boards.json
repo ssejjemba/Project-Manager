@@ -1,0 +1,80 @@
+[
+  {
+    "id": "board1",
+    "name": "Album Production",
+    "columns": [
+      {
+        "id": "column1",
+        "name": "Songwriting",
+        "color": "#FF7F50"
+      },
+      {
+        "id": "column2",
+        "name": "Recording",
+        "color": "#6495ED"
+      },
+      {
+        "id": "column3",
+        "name": "Mixing",
+        "color": "#7CFC00"
+      },
+      {
+        "id": "column4",
+        "name": "Mastering",
+        "color": "#FFD700"
+      }
+    ]
+  },
+  {
+    "id": "board2",
+    "name": "Gig Planning",
+    "columns": [
+      {
+        "id": "column5",
+        "name": "Book Venues",
+        "color": "#00BFFF"
+      },
+      {
+        "id": "column6",
+        "name": "Promotion",
+        "color": "#FF4500"
+      },
+      {
+        "id": "column7",
+        "name": "Rehearsals",
+        "color": "#4B0082"
+      },
+      {
+        "id": "column8",
+        "name": "Soundcheck",
+        "color": "#9ACD32"
+      },
+      {
+        "id": "column9",
+        "name": "Performance",
+        "color": "#DAA520"
+      }
+    ]
+  },
+  {
+    "id": "board3",
+    "name": "Training Sessions",
+    "columns": [
+      {
+        "id": "column10",
+        "name": "Exercise",
+        "color": "#8B4513"
+      },
+      {
+        "id": "column11",
+        "name": "Technique",
+        "color": "#808080"
+      },
+      {
+        "id": "column12",
+        "name": "Repertoire",
+        "color": "#800000"
+      }
+    ]
+  }
+]
