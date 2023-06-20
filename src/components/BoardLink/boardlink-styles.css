@@ -1,0 +1,30 @@
+.sidebar__board{
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    height: fit-content;
+    color: var(--color-medium-grey);
+}
+.sidebar__board svg{
+}
+
+.sidebar__board p{
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    font-style: normal;
+}
+
+.sidebar__board.active{
+    background-color: var(--color-main-purple);
+    color: var(--color-white-light);
+    border-radius: 0 6.3rem 6.3rem 0;
+    border-left: 1.5rem solid var(--color-main-purple); 
+    transform: translateX(-1.5rem);
+    width: 110%;
+    
+}
+.board__title.purple{
+    color: var(--color-main-purple);
+}

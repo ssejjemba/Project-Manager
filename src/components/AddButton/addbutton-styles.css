@@ -1,0 +1,11 @@
+.addbutton{
+    padding: 1rem 1.5rem;
+    background-color: var(--color-main-purple);
+    color: var(--color-white-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-style: normal;
+    border-radius: 1.5rem;
+    line-height: 1.2rem;
+    margin: auto;
+}

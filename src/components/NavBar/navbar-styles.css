@@ -1,0 +1,40 @@
+header{
+    background-color: var(--color-white-light);
+    height: fit-content;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    /* background-color: pink; */
+}
+.title-divider{
+    position: absolute;
+    left: 13.5rem;
+    top:0;
+    height: 100%;
+    width: 1px;
+    background-color: var(--color-lines-light);
+}
+.nav__board-title{
+    flex: 0.9;
+}
+.nav__board-title h2{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+}
+.nav__actions{
+    /* flex: 0.2; */
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+}
+.nav__actions span{
+    color: var(--color-medium-grey);
+    font-size: 2rem;
+    font-weight: 800;
+}

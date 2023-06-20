@@ -1,0 +1,22 @@
+.fragment-container{
+    height: calc(100vh - 6.3rem);
+    background-color: var(--color-blue1-light);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered-info{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.centered-info p{
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    text-align: center;
+    color: var(--color-medium-grey);
+}
