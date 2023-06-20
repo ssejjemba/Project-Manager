@@ -1,3 +1,4 @@
+"use client";
 import { useContext } from "react";
 import { RootStore } from "../stores/root.store";
 import { RootStoreContext } from "../providers/root.provider";

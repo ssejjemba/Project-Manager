@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode, createContext } from "react";
 import { RootStore } from "../stores/root.store";
 

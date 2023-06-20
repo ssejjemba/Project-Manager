@@ -1,3 +1,4 @@
+import { RootStoreProvider } from "@/providers/root.provider";
 import "./globals.css";
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <RootStoreProvider>
+        <body>{children}</body>
+      </RootStoreProvider>
     </html>
   );
 }
