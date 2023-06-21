@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import NavBar from "../../components/NavBar/navbar-component";
 import "./home-styles.css";
 import SideBar from "../../components/SideBar/sidebar-component";
+import { useState } from "react";
 
 const Home = () => {
   return (
