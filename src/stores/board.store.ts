@@ -1,4 +1,10 @@
-import { makeObservable, observable, action, runInAction } from "mobx";
+import {
+  makeObservable,
+  observable,
+  action,
+  runInAction,
+  computed,
+} from "mobx";
 import { RootStore } from "./root.store";
 
 interface Board {
@@ -16,7 +22,7 @@ interface Column {
 export class BoardStore {
   boards: Board[] = [];
   activeBoardId: string | null = null;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   constructor(public rootStore: RootStore) {
     makeObservable(this, {
@@ -27,10 +33,15 @@ export class BoardStore {
       setActiveBoard: action,
       renameBoard: action,
       removeColumn: action,
+      activeBoard: computed,
     });
   }
 
-  async fetchBoards(): Promise<void> {
+  get activeBoard(): Board | undefined {
+    return this.boards.find((board) => board.id === this.activeBoardId);
+  }
+
+  fetchBoards = async (): Promise<void> => {
     try {
       runInAction(() => {
         this.isLoading = true;
@@ -61,29 +72,29 @@ export class BoardStore {
         // Handle error
       });
     }
-  }
+  };
 
-  setActiveBoard(boardId: string): void {
+  setActiveBoard = (boardId: string): void => {
     this.activeBoardId = boardId;
-  }
+  };
 
-  renameBoard(boardId: string, newName: string): void {
+  renameBoard = (boardId: string, newName: string): void => {
     const board = this.boards.find((b) => b.id === boardId);
     if (board) {
       board.name = newName;
       // Update the backend server with the new name
       this.syncBoardChanges(board);
     }
-  }
+  };
 
-  removeColumn(boardId: string, columnId: string): void {
+  removeColumn = (boardId: string, columnId: string): void => {
     const board = this.boards.find((b) => b.id === boardId);
     if (board) {
       board.columns = board.columns.filter((column) => column.id !== columnId);
       // Update the backend server with the updated columns
       this.syncBoardChanges(board);
     }
-  }
+  };
 
   private syncBoardChanges(board: Board): void {
     // Simulate synchronization with the backend server

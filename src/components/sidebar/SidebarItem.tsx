@@ -1,14 +1,18 @@
+"use client";
 import { IconsPath } from "@/constants/icons";
 
 type SidebarItemProps = {
   text: string;
   id: string;
   active?: boolean;
+  onClick?: () => void;
 };
 
 export default function SidebarItem(props: SidebarItemProps) {
   return (
     <div
+      role="menu"
+      onClick={props.onClick}
       style={{ borderRadius: "0px 100px 100px 0px" }}
       className={`h-20 transition ease-in-out flex pl-12 ${
         props.active ? "bg-purple" : "bg-transparent"

@@ -26,15 +26,15 @@ export class SettingsStore {
     this.loadSettings();
   }
 
-  setTheme(theme: Theme): void {
+  setTheme = (theme: Theme): void => {
     this.settings.theme = theme;
     this.saveSettings();
-  }
+  };
 
-  saveActiveBoardId(boardId: string): void {
+  saveActiveBoardId = (boardId: string): void => {
     this.settings.activeBoardId = boardId;
     this.saveSettings();
-  }
+  };
 
   // Add more action methods for other settings properties here
 

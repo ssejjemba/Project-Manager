@@ -6,20 +6,35 @@ import SidebarItem from "./SidebarItem";
 import { IconsPath } from "@/constants/icons";
 import Switch from "../switch/Switch";
 import { useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "@/hooks/useStore";
 
-export default function SideBar() {
-  const [theme, setTheme] = useState("light");
+function SideBar() {
+  const { settingsStore, boardsStore } = useStore();
+  const { boards, activeBoardId, setActiveBoard } = boardsStore;
+  const {
+    settings: { theme },
+    setTheme,
+  } = settingsStore;
   return (
     <aside className="flex flex-col h-full w-1/5 max-w-lg bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines">
       <SideBarHeader />
       <div className="flex h-full flex-col mr-10">
         <div className="h-20 w-full flex pl-12 items-center">
-          <h4 className="text-hS uppercase text-medGray">All boards (3)</h4>
+          <h4 className="text-hS uppercase text-medGray">{`All boards (${boards.length})`}</h4>
         </div>
         <div className="flex flex-grow flex-col">
-          <SidebarItem id="01" text="Platform Launch" active />
-          <SidebarItem id="02" text="Marketing Plan" />
-          <SidebarItem id="03" text="Roadmap" />
+          {boards.map((board) => {
+            return (
+              <SidebarItem
+                key={board.id}
+                id={board.id}
+                text={board.name}
+                active={activeBoardId === board.id}
+                onClick={() => setActiveBoard(board.id)}
+              />
+            );
+          })}
           <div
             style={{ borderRadius: "0px 100px 100px 0px" }}
             className={`h-20 flex pl-12  items-center cursor-pointer [&:not(:first-child)]:mt-1`}
@@ -92,3 +107,5 @@ export default function SideBar() {
     </aside>
   );
 }
+
+export default observer(SideBar);

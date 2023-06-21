@@ -1,10 +1,17 @@
 "use client";
+import { observer } from "mobx-react-lite";
 import Button from "../buttons/Button";
+import { useStore } from "@/hooks/useStore";
 
-export default function Header() {
+function Header() {
+  const {
+    boardsStore: { activeBoard },
+  } = useStore();
   return (
     <header className="flex justify-between items-center h-36 w-full px-10 bg-white dark:bg-darkGrey border-b border-lightLines dark:border-darkLines">
-      <h1 className="text-hXL text-black dark:text-white">Platform Launch</h1>
+      <h1 className="text-hXL text-black dark:text-white">
+        {activeBoard?.name}
+      </h1>
       <div className="h-full flex items-center">
         <Button
           variant="disabled"
@@ -34,3 +41,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default observer(Header);
