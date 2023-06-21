@@ -1,11 +1,11 @@
 import BoardLink from "../BoardLink/boardlink-component";
 import CompanyLogo from "../CompanyLogo/companylogo-component";
-import { useState } from "react";
+import { useContext} from "react";
 import "./sidebar-styles.css";
+import { SidebarContext } from "../../contexts/sidebar-context";
 
 const SideBar = () => {
-  const [isSideBarOpen, toggleSideBar] = useState(false);
-  console.log(isSideBarOpen);
+  const {isSideBarOpen, toggleSideBar} = useContext(SidebarContext);
   const toggleSideBarHandler = () => {
     toggleSideBar(!isSideBarOpen);
   };

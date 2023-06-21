@@ -20,6 +20,11 @@ nav{
 }
 .nav__board-title{
     flex: 0.9;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+}
+.nav__board-title.move-right{
+    transform: translateX(4.5rem);
 }
 .nav__board-title h2{
     margin-left: 2rem;
