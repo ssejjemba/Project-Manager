@@ -1,12 +1,17 @@
 .fragment-container{
     height: calc(100vh - 6.3rem);
     background-color: var(--color-blue1-light);
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: width 0.3s ease, transform 0.3s ease;
 }
-
+.fragment-container.sidebar-open{
+    width: calc(100vw - 18.75rem);
+    transform: translateX(18.75rem);
+    float: right;
+}
 .centered-info{
     height: fit-content;
     display: flex;

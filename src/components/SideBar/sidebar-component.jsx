@@ -1,11 +1,13 @@
 import BoardLink from "../BoardLink/boardlink-component";
 import CompanyLogo from "../CompanyLogo/companylogo-component";
-import { useContext} from "react";
+import { useContext } from "react";
 import "./sidebar-styles.css";
 import { SidebarContext } from "../../contexts/sidebar-context";
+import { Theme } from "../../contexts/theme-context";
 
 const SideBar = () => {
-  const {isSideBarOpen, toggleSideBar} = useContext(SidebarContext);
+  const { isSideBarOpen, toggleSideBar } = useContext(SidebarContext);
+  const { theme, toggleThemeHandler } = useContext(Theme);
   const toggleSideBarHandler = () => {
     toggleSideBar(!isSideBarOpen);
   };
@@ -30,10 +32,12 @@ const SideBar = () => {
           <div className="theme-switch-div">
             <span class="material-symbols-rounded">light_mode</span>
 
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
+            <div
+              className={`slider-switch ${theme == 'light' ? "checked" : ""}`}
+              onClick={toggleThemeHandler}
+            >
+              <div className="slider"></div>
+            </div>
             <span class="material-symbols-rounded" id="_mode">
               night_sight_max
             </span>
@@ -48,7 +52,7 @@ const SideBar = () => {
           </div>
         </div>
       </div>
-      <div className={`sidebar__toggle ${isSideBarOpen ? 'hide' : ''}`}>
+      <div className={`sidebar__toggle ${isSideBarOpen ? "hide" : ""}`}>
         <button onClick={toggleSideBarHandler}>
           <span class="material-symbols-rounded">visibility</span>
         </button>

@@ -2,11 +2,13 @@ import { Outlet } from "react-router";
 import NavBar from "../../components/NavBar/navbar-component";
 import "./home-styles.css";
 import SideBar from "../../components/SideBar/sidebar-component";
-import { useState } from "react";
+import { useContext } from "react";
+import { Theme } from "../../contexts/theme-context";
 
 const Home = () => {
+  const {theme} = useContext(Theme);
   return (
-    <div>
+    <div id={theme}>
       <NavBar />
       <div className="home-content">
         <SideBar />
