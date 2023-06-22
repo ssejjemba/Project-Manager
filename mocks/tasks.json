@@ -1,0 +1,119 @@
+[
+  {
+    "id": "task1",
+    "boardId": "board1",
+    "columnId": "column1",
+    "order": 1,
+    "title": "Write lyrics for chorus",
+    "description": "Compose catchy lyrics for the chorus of the song",
+    "meta": {
+      "date": "2023-06-15",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask1",
+        "title": "Brainstorm lyric ideas",
+        "completed": false
+      },
+      {
+        "id": "subtask2",
+        "title": "Draft chorus lyrics",
+        "completed": false
+      },
+      {
+        "id": "subtask3",
+        "title": "Refine and finalize chorus lyrics",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment1",
+        "text": "Great job on the lyrics so far!",
+        "author": "Jane Smith",
+        "date": "2023-06-16"
+      }
+    ]
+  },
+  {
+    "id": "task2",
+    "boardId": "board2",
+    "columnId": "column5",
+    "order": 2,
+    "title": "Research potential venues",
+    "description": "Find suitable venues for upcoming gigs",
+    "meta": {
+      "date": "2023-06-17",
+      "author": "Jane Smith"
+    },
+    "subtasks": [
+      {
+        "id": "subtask4",
+        "title": "Compile list of potential venues",
+        "completed": false
+      },
+      {
+        "id": "subtask5",
+        "title": "Research capacity and amenities of venues",
+        "completed": false
+      },
+      {
+        "id": "subtask6",
+        "title": "Contact venues for availability",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment2",
+        "text": "Let's prioritize venues with good acoustics.",
+        "author": "John Doe",
+        "date": "2023-06-18"
+      },
+      {
+        "id": "comment3",
+        "text": "Agreed, sound quality is crucial for our performances.",
+        "author": "Jane Smith",
+        "date": "2023-06-18"
+      }
+    ]
+  },
+  {
+    "id": "task3",
+    "boardId": "board3",
+    "columnId": "column10",
+    "order": 3,
+    "title": "Warm-up exercises",
+    "description": "Perform warm-up exercises before practice sessions",
+    "meta": {
+      "date": "2023-06-19",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask7",
+        "title": "Stretching",
+        "completed": false
+      },
+      {
+        "id": "subtask8",
+        "title": "Breathing exercises",
+        "completed": false
+      },
+      {
+        "id": "subtask9",
+        "title": "Finger dexterity exercises",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment4",
+        "text": "Remember to focus on proper technique during warm-ups.",
+        "author": "Jane Smith",
+        "date": "2023-06-20"
+      }
+    ]
+  }
+]

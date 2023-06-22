@@ -1,11 +1,13 @@
 import { BoardStore } from "./board.store";
 import { SettingsStore } from "./settings.store";
+import { TaskStore } from "./tasks.store";
 // Import other store classes here
 
 export class RootStore {
   private static instance: RootStore | null = null;
   settingsStore!: SettingsStore;
   boardsStore!: BoardStore;
+  taskStore!: TaskStore;
   // Declare other store instances here
 
   private constructor() {
@@ -14,6 +16,7 @@ export class RootStore {
     }
     this.settingsStore = new SettingsStore(this);
     this.boardsStore = new BoardStore(this);
+    this.taskStore = new TaskStore(this);
     // Initialize other store instances here
 
     RootStore.instance = this;

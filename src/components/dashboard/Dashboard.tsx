@@ -1,12 +1,18 @@
 "use client";
-import { useState } from "react";
+import { observer } from "mobx-react-lite";
 import EmptyBoard from "./EmptyBoard";
+import { useStore } from "@/hooks/useStore";
+import Board from "../board/Board";
 
-export default function Dashboard() {
-  const [columns, setColumns] = useState([]);
+function Dashboard() {
+  const {
+    boardsStore: { activeBoard },
+  } = useStore();
   return (
     <section className="w-full flex flex-1">
-      {columns.length === 0 && <EmptyBoard />}
+      {activeBoard!.columns.length === 0 ? <EmptyBoard /> : <Board />}
     </section>
   );
 }
+
+export default observer(Dashboard);
