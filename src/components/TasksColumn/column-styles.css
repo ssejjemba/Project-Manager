@@ -1,0 +1,13 @@
+.column-container{
+    height: fit-content;
+    padding: 0.8rem;
+    /* background-color: grey; */
+}
+.column-content{
+    height: 60vh;
+    width: 280px;
+    background-color: var(--color-new-column);
+}
+.column-content.margin-top{
+    margin-top: 2rem;
+}

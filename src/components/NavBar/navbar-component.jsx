@@ -1,11 +1,11 @@
 import "./navbar-styles.css";
 import AddButton from "../AddButton/addbutton-component";
 import CompanyLogo from "../CompanyLogo/companylogo-component";
-import { useContext } from "react";
-import { SidebarContext } from "../../contexts/sidebar-context";
+import { useSelector } from "react-redux";
+import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
 
 const NavBar = () => {
-  const {isSideBarOpen} = useContext(SidebarContext);
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
   return (
     <header>
       <nav>

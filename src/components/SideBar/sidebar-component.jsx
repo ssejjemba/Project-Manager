@@ -4,10 +4,11 @@ import "./sidebar-styles.css";
 import { SidebarContext } from "../../contexts/sidebar-context";
 import { Theme } from "../../contexts/theme-context";
 import BoardLink from "../BoardLink/boardlink-component";
-import AddBoardButton from "../AddBoard/addboard-component";
+import AddBoardButton from "../AddBoardButton/addboard-component";
 import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSideBarAction } from "../../store/appState/appState-actions";
+import ColumnName from "../ColumnName/columnName-component";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const SideBar = () => {
   const isSideBarOpen = useSelector(selectIsSideBarOpen);
 
   const toggleSideBarHandler = () => {
-    console.log('dispatched')
+    console.log(isSideBarOpen)
     dispatch(toggleSideBarAction(isSideBarOpen));
   };
   const onClickBoardHandler = () => {
@@ -28,7 +29,10 @@ const SideBar = () => {
       <div className="sidebar-container">
         <div className="sidebar__div1">
           <CompanyLogo />
-          <div className="board-info">ALL BOARDS (3)</div>
+          <ColumnName 
+            name={'ALL BOARDS (3)'}
+            isOnEdit={false}
+          />
         </div>
         <div className="sidebar__div2">
           {boardList.map((board) => {

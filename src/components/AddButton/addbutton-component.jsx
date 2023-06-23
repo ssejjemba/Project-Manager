@@ -1,8 +1,8 @@
 import './addbutton-styles.css'
 
 const AddButton = (props) => {
-  const { text } = props;
-  return <button className='addbutton'>{text}</button>;
+  const { text, onTap } = props;
+  return <button className='addbutton' onClick={onTap}>{text}</button>;
 };
 
 export default AddButton;
