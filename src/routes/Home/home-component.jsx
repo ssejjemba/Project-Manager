@@ -4,6 +4,7 @@ import "./home-styles.css";
 import SideBar from "../../components/SideBar/sidebar-component";
 import { useContext } from "react";
 import { Theme } from "../../contexts/theme-context";
+import CustomModal from "../../components/Modal/modal-component";
 
 const Home = () => {
   const {theme} = useContext(Theme);
@@ -14,6 +15,7 @@ const Home = () => {
         <SideBar />
         <Outlet />
       </div>
+      <CustomModal />
     </div>
   );
 };

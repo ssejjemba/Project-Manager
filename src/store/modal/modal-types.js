@@ -1,0 +1,3 @@
+export const MODAL_ACTION_TYPES = {
+  SHOW_CHOSEN_MODAL: "modal/SHOW_CHOSEN_MODAL",
+};

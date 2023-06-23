@@ -5,14 +5,20 @@ import { SidebarContext } from "../../contexts/sidebar-context";
 import { Theme } from "../../contexts/theme-context";
 import BoardLink from "../BoardLink/boardlink-component";
 import AddBoardButton from "../AddBoard/addboard-component";
+import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSideBarAction } from "../../store/appState/appState-actions";
 
 const SideBar = () => {
-  const { isSideBarOpen, toggleSideBar, boardList } =
+  const dispatch = useDispatch();
+  const { boardList } =
     useContext(SidebarContext);
   const { theme, toggleThemeHandler } = useContext(Theme);
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
 
   const toggleSideBarHandler = () => {
-    toggleSideBar(!isSideBarOpen);
+    console.log('dispatched')
+    dispatch(toggleSideBarAction(isSideBarOpen));
   };
   const onClickBoardHandler = () => {
     return;
@@ -45,7 +51,7 @@ const SideBar = () => {
             <span class="material-symbols-rounded">light_mode</span>
 
             <div
-              className={`slider-switch ${theme == "light" ? "checked" : ""}`}
+              className={`slider-switch ${theme == "dark" ? "checked" : ""}`}
               onClick={toggleThemeHandler}
             >
               <div className="slider"></div>

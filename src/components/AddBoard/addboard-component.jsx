@@ -2,22 +2,18 @@ import { useContext } from "react";
 import BoardLink from "../BoardLink/boardlink-component";
 
 import "./addboard-styles.css";
-import { SidebarContext } from "../../contexts/sidebar-context";
+import { useDispatch } from "react-redux";
+import { showChosenModalAction } from "../../store/modal/modal-actions";
 
 const AddBoardButton = (props) => {
-  const { boardList, setBoardList } = useContext(SidebarContext);
+  const { text, isActive, textColor } = props;
+  const dispatch = useDispatch();
 
   const addBoardHandler = () => {
-    const newBoard = {
-      id: boardList.length + 1,
-      name: "Edit New Board",
-      isActive: false,
-    };
-    const newList = boardList.concat(newBoard);
-    console.log(newList);
-    setBoardList(newList);
+    dispatch(
+      showChosenModalAction({ formName: "Add New Board", isModalSeen: true })
+    );
   };
-  const { text, isActive, textColor } = props;
 
   return (
     <>

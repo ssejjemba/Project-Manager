@@ -12,6 +12,10 @@
   /* display: none; */
 }
 
+#dark .sidebar{
+  background-color: var(--color-blue2-dark);
+}
+
 .sidebar.open-sidebar {
   transform: translateX(0);
 }
