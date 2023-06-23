@@ -1,7 +1,7 @@
 import { makeObservable, observable, action, runInAction } from "mobx";
 import { RootStore } from "./root.store";
 
-interface Task {
+export interface Task {
   id: string;
   boardId: string;
   columnId: string;
@@ -26,6 +26,8 @@ interface Task {
 
 interface PartialTask {
   id?: string;
+  boardId?: string;
+  columnId?: string;
   title?: string;
   description?: string;
   meta?: {

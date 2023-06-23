@@ -3,9 +3,8 @@
     "id": "task1",
     "boardId": "board1",
     "columnId": "column1",
-    "order": 1,
-    "title": "Write lyrics for chorus",
-    "description": "Compose catchy lyrics for the chorus of the song",
+    "title": "Write lyrics",
+    "description": "Compose lyrics for the song",
     "meta": {
       "date": "2023-06-15",
       "author": "John Doe"
@@ -13,24 +12,24 @@
     "subtasks": [
       {
         "id": "subtask1",
-        "title": "Brainstorm lyric ideas",
-        "completed": false
+        "title": "Verse 1",
+        "completed": true
       },
       {
         "id": "subtask2",
-        "title": "Draft chorus lyrics",
-        "completed": false
+        "title": "Chorus",
+        "completed": true
       },
       {
         "id": "subtask3",
-        "title": "Refine and finalize chorus lyrics",
+        "title": "Bridge",
         "completed": false
       }
     ],
     "comments": [
       {
         "id": "comment1",
-        "text": "Great job on the lyrics so far!",
+        "text": "Great progress so far!",
         "author": "Jane Smith",
         "date": "2023-06-16"
       }
@@ -38,42 +37,35 @@
   },
   {
     "id": "task2",
-    "boardId": "board2",
-    "columnId": "column5",
-    "order": 2,
-    "title": "Research potential venues",
-    "description": "Find suitable venues for upcoming gigs",
+    "boardId": "board1",
+    "columnId": "column1",
+    "title": "Compose melodies",
+    "description": "Create melodies for the song",
     "meta": {
       "date": "2023-06-17",
-      "author": "Jane Smith"
+      "author": "John Doe"
     },
     "subtasks": [
       {
         "id": "subtask4",
-        "title": "Compile list of potential venues",
-        "completed": false
+        "title": "Intro melody",
+        "completed": true
       },
       {
         "id": "subtask5",
-        "title": "Research capacity and amenities of venues",
+        "title": "Verse melody",
         "completed": false
       },
       {
         "id": "subtask6",
-        "title": "Contact venues for availability",
+        "title": "Chorus melody",
         "completed": false
       }
     ],
     "comments": [
       {
         "id": "comment2",
-        "text": "Let's prioritize venues with good acoustics.",
-        "author": "John Doe",
-        "date": "2023-06-18"
-      },
-      {
-        "id": "comment3",
-        "text": "Agreed, sound quality is crucial for our performances.",
+        "text": "Let's add some variations to the melodies",
         "author": "Jane Smith",
         "date": "2023-06-18"
       }
@@ -81,11 +73,10 @@
   },
   {
     "id": "task3",
-    "boardId": "board3",
-    "columnId": "column10",
-    "order": 3,
-    "title": "Warm-up exercises",
-    "description": "Perform warm-up exercises before practice sessions",
+    "boardId": "board1",
+    "columnId": "column1",
+    "title": "Create chord progression",
+    "description": "Develop chord progression for the song",
     "meta": {
       "date": "2023-06-19",
       "author": "John Doe"
@@ -93,26 +84,710 @@
     "subtasks": [
       {
         "id": "subtask7",
-        "title": "Stretching",
+        "title": "Verse chord progression",
         "completed": false
       },
       {
         "id": "subtask8",
-        "title": "Breathing exercises",
+        "title": "Chorus chord progression",
         "completed": false
       },
       {
         "id": "subtask9",
-        "title": "Finger dexterity exercises",
+        "title": "Bridge chord progression",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment3",
+        "text": "We can try different progressions to find the right feel",
+        "author": "Jane Smith",
+        "date": "2023-06-20"
+      }
+    ]
+  },
+  {
+    "id": "task4",
+    "boardId": "board1",
+    "columnId": "column2",
+    "title": "Record vocals",
+    "description": "Capture lead vocals for the song",
+    "meta": {
+      "date": "2023-06-21",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask10",
+        "title": "Verse vocals",
+        "completed": false
+      },
+      {
+        "id": "subtask11",
+        "title": "Chorus vocals",
+        "completed": false
+      },
+      {
+        "id": "subtask12",
+        "title": "Bridge vocals",
         "completed": false
       }
     ],
     "comments": [
       {
         "id": "comment4",
-        "text": "Remember to focus on proper technique during warm-ups.",
+        "text": "Let's schedule a recording session for next week",
         "author": "Jane Smith",
-        "date": "2023-06-20"
+        "date": "2023-06-22"
+      }
+    ]
+  },
+  {
+    "id": "task5",
+    "boardId": "board1",
+    "columnId": "column2",
+    "title": "Record guitars",
+    "description": "Capture guitar parts for the song",
+    "meta": {
+      "date": "2023-06-23",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask13",
+        "title": "Rhythm guitar",
+        "completed": false
+      },
+      {
+        "id": "subtask14",
+        "title": "Lead guitar",
+        "completed": false
+      },
+      {
+        "id": "subtask15",
+        "title": "Acoustic guitar",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment5",
+        "text": "We should experiment with different guitar tones",
+        "author": "Jane Smith",
+        "date": "2023-06-24"
+      }
+    ]
+  },
+  {
+    "id": "task6",
+    "boardId": "board1",
+    "columnId": "column2",
+    "title": "Record bass",
+    "description": "Capture bass part for the song",
+    "meta": {
+      "date": "2023-06-25",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask16",
+        "title": "Verse bass",
+        "completed": false
+      },
+      {
+        "id": "subtask17",
+        "title": "Chorus bass",
+        "completed": false
+      },
+      {
+        "id": "subtask18",
+        "title": "Bridge bass",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment6",
+        "text": "We need a tight and groovy bassline for this song",
+        "author": "Jane Smith",
+        "date": "2023-06-26"
+      }
+    ]
+  },
+  {
+    "id": "task7",
+    "boardId": "board2",
+    "columnId": "column5",
+    "title": "Research potential venues",
+    "description": "Find suitable venues for upcoming gigs",
+    "meta": {
+      "date": "2023-06-27",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask19",
+        "title": "Venue A",
+        "completed": true
+      },
+      {
+        "id": "subtask20",
+        "title": "Venue B",
+        "completed": true
+      },
+      {
+        "id": "subtask21",
+        "title": "Venue C",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment7",
+        "text": "Let's consider venues with good acoustics",
+        "author": "Jane Smith",
+        "date": "2023-06-28"
+      }
+    ]
+  },
+  {
+    "id": "task8",
+    "boardId": "board2",
+    "columnId": "column5",
+    "title": "Contact venues",
+    "description": "Reach out to venues for availability",
+    "meta": {
+      "date": "2023-06-29",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask22",
+        "title": "Venue A",
+        "completed": false
+      },
+      {
+        "id": "subtask23",
+        "title": "Venue B",
+        "completed": false
+      },
+      {
+        "id": "subtask24",
+        "title": "Venue C",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment8",
+        "text": "Let's negotiate the terms and pricing",
+        "author": "Jane Smith",
+        "date": "2023-06-30"
+      }
+    ]
+  },
+  {
+    "id": "task9",
+    "boardId": "board2",
+    "columnId": "column5",
+    "title": "Confirm booking",
+    "description": "Finalize booking with selected venues",
+    "meta": {
+      "date": "2023-07-01",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask25",
+        "title": "Venue A",
+        "completed": false
+      },
+      {
+        "id": "subtask26",
+        "title": "Venue B",
+        "completed": false
+      },
+      {
+        "id": "subtask27",
+        "title": "Venue C",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment9",
+        "text": "Let's get the contracts signed and confirmed",
+        "author": "Jane Smith",
+        "date": "2023-07-02"
+      }
+    ]
+  },
+  {
+    "id": "task10",
+    "boardId": "board2",
+    "columnId": "column6",
+    "title": "Create promotional materials",
+    "description": "Design posters, flyers, and social media graphics",
+    "meta": {
+      "date": "2023-07-03",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask28",
+        "title": "Poster design",
+        "completed": true
+      },
+      {
+        "id": "subtask29",
+        "title": "Flyer design",
+        "completed": false
+      },
+      {
+        "id": "subtask30",
+        "title": "Social media graphics",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment10",
+        "text": "Let's make the designs visually appealing and eye-catching",
+        "author": "Jane Smith",
+        "date": "2023-07-04"
+      }
+    ]
+  },
+  {
+    "id": "task11",
+    "boardId": "board2",
+    "columnId": "column6",
+    "title": "Promote upcoming gigs",
+    "description": "Share event details on social media and other platforms",
+    "meta": {
+      "date": "2023-07-05",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask31",
+        "title": "Create Facebook event",
+        "completed": false
+      },
+      {
+        "id": "subtask32",
+        "title": "Post on Instagram",
+        "completed": false
+      },
+      {
+        "id": "subtask33",
+        "title": "Send email newsletters",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment11",
+        "text": "Let's reach out to our followers and fans to promote the gigs",
+        "author": "Jane Smith",
+        "date": "2023-07-06"
+      }
+    ]
+  },
+  {
+    "id": "task12",
+    "boardId": "board2",
+    "columnId": "column7",
+    "title": "Schedule band rehearsals",
+    "description": "Plan and coordinate rehearsal sessions",
+    "meta": {
+      "date": "2023-07-07",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask34",
+        "title": "Rehearsal 1",
+        "completed": false
+      },
+      {
+        "id": "subtask35",
+        "title": "Rehearsal 2",
+        "completed": false
+      },
+      {
+        "id": "subtask36",
+        "title": "Rehearsal 3",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment12",
+        "text": "Let's ensure we have enough practice before the gigs",
+        "author": "Jane Smith",
+        "date": "2023-07-08"
+      }
+    ]
+  },
+  {
+    "id": "task13",
+    "boardId": "board2",
+    "columnId": "column7",
+    "title": "Rehearse song repertoire",
+    "description": "Practice songs for the upcoming gigs",
+    "meta": {
+      "date": "2023-07-09",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask37",
+        "title": "Song 1",
+        "completed": false
+      },
+      {
+        "id": "subtask38",
+        "title": "Song 2",
+        "completed": false
+      },
+      {
+        "id": "subtask39",
+        "title": "Song 3",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment13",
+        "text": "Let's ensure we have tight and polished performances",
+        "author": "Jane Smith",
+        "date": "2023-07-10"
+      }
+    ]
+  },
+  {
+    "id": "task14",
+    "boardId": "board2",
+    "columnId": "column8",
+    "title": "Set up sound system",
+    "description": "Prepare and test sound equipment for the gigs",
+    "meta": {
+      "date": "2023-07-11",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask40",
+        "title": "Soundcheck 1",
+        "completed": false
+      },
+      {
+        "id": "subtask41",
+        "title": "Soundcheck 2",
+        "completed": false
+      },
+      {
+        "id": "subtask42",
+        "title": "Soundcheck 3",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment14",
+        "text": "Let's ensure the sound quality is excellent during the performances",
+        "author": "Jane Smith",
+        "date": "2023-07-12"
+      }
+    ]
+  },
+  {
+    "id": "task15",
+    "boardId": "board2",
+    "columnId": "column9",
+    "title": "Perform at the gig",
+    "description": "Entertain the audience with live performances",
+    "meta": {
+      "date": "2023-07-13",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask43",
+        "title": "Gig 1",
+        "completed": false
+      },
+      {
+        "id": "subtask44",
+        "title": "Gig 2",
+        "completed": false
+      },
+      {
+        "id": "subtask45",
+        "title": "Gig 3",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment15",
+        "text": "Let's give our best performances and engage the audience",
+        "author": "Jane Smith",
+        "date": "2023-07-14"
+      }
+    ]
+  },
+  {
+    "id": "task16",
+    "boardId": "board3",
+    "columnId": "column10",
+    "title": "Warm-up exercises",
+    "description": "Perform warm-up exercises for training sessions",
+    "meta": {
+      "date": "2023-07-15",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask46",
+        "title": "Stretching",
+        "completed": true
+      },
+      {
+        "id": "subtask47",
+        "title": "Breathing exercises",
+        "completed": true
+      },
+      {
+        "id": "subtask48",
+        "title": "Vocal warm-up",
+        "completed": true
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment16",
+        "text": "Let's ensure we are physically and vocally prepared for the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-16"
+      }
+    ]
+  },
+  {
+    "id": "task17",
+    "boardId": "board3",
+    "columnId": "column10",
+    "title": "Technique practice",
+    "description": "Focus on improving instrumental or vocal techniques",
+    "meta": {
+      "date": "2023-07-17",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask49",
+        "title": "Finger exercises",
+        "completed": false
+      },
+      {
+        "id": "subtask50",
+        "title": "Breath control",
+        "completed": false
+      },
+      {
+        "id": "subtask51",
+        "title": "Articulation exercises",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment17",
+        "text": "Let's focus on improving our techniques during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-18"
+      }
+    ]
+  },
+  {
+    "id": "task18",
+    "boardId": "board3",
+    "columnId": "column10",
+    "title": "Sight-reading",
+    "description": "Practice reading and performing new music",
+    "meta": {
+      "date": "2023-07-19",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask52",
+        "title": "Sheet music A",
+        "completed": false
+      },
+      {
+        "id": "subtask53",
+        "title": "Sheet music B",
+        "completed": false
+      },
+      {
+        "id": "subtask54",
+        "title": "Sheet music C",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment18",
+        "text": "Let's improve our sight-reading skills during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-20"
+      }
+    ]
+  },
+  {
+    "id": "task19",
+    "boardId": "board3",
+    "columnId": "column11",
+    "title": "Fingering exercises",
+    "description": "Work on finger dexterity and coordination",
+    "meta": {
+      "date": "2023-07-21",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask55",
+        "title": "Scale exercises",
+        "completed": false
+      },
+      {
+        "id": "subtask56",
+        "title": "Chord exercises",
+        "completed": false
+      },
+      {
+        "id": "subtask57",
+        "title": "Arpeggio exercises",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment19",
+        "text": "Let's focus on improving our fingering techniques during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-22"
+      }
+    ]
+  },
+  {
+    "id": "task20",
+    "boardId": "board3",
+    "columnId": "column11",
+    "title": "Vocal exercises",
+    "description": "Work on vocal range, control, and expression",
+    "meta": {
+      "date": "2023-07-23",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask58",
+        "title": "Vocal scales",
+        "completed": false
+      },
+      {
+        "id": "subtask59",
+        "title": "Breath control exercises",
+        "completed": false
+      },
+      {
+        "id": "subtask60",
+        "title": "Phrasing exercises",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment20",
+        "text": "Let's work on improving our vocal skills during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-24"
+      }
+    ]
+  },
+  {
+    "id": "task21",
+    "boardId": "board3",
+    "columnId": "column11",
+    "title": "Ear training",
+    "description": "Develop musical ear and improve pitch recognition",
+    "meta": {
+      "date": "2023-07-25",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask61",
+        "title": "Interval recognition",
+        "completed": false
+      },
+      {
+        "id": "subtask62",
+        "title": "Chord recognition",
+        "completed": false
+      },
+      {
+        "id": "subtask63",
+        "title": "Melody dictation",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment21",
+        "text": "Let's focus on developing our ear skills during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-26"
+      }
+    ]
+  },
+  {
+    "id": "task22",
+    "boardId": "board3",
+    "columnId": "column12",
+    "title": "Learn new repertoire",
+    "description": "Study and practice new songs",
+    "meta": {
+      "date": "2023-07-27",
+      "author": "John Doe"
+    },
+    "subtasks": [
+      {
+        "id": "subtask64",
+        "title": "Song A",
+        "completed": false
+      },
+      {
+        "id": "subtask65",
+        "title": "Song B",
+        "completed": false
+      },
+      {
+        "id": "subtask66",
+        "title": "Song C",
+        "completed": false
+      }
+    ],
+    "comments": [
+      {
+        "id": "comment22",
+        "text": "Let's learn and master new songs during the training sessions",
+        "author": "Jane Smith",
+        "date": "2023-07-28"
       }
     ]
   }

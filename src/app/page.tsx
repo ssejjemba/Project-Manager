@@ -38,7 +38,7 @@ function Home() {
   return (
     <div className={`h-screen w-screen flex ${theme === "dark" ? "dark" : ""}`}>
       <SideBar />
-      <main className="flex flex-grow flex-col h-full bg-lightBg dark:bg-darkBg">
+      <main className="flex flex-grow flex-col min-w-0 h-full bg-lightBg dark:bg-darkBg">
         <Header />
         <Dashboard />
       </main>
