@@ -1,20 +1,46 @@
 import { useState } from "react";
 import AddButton from "../AddButton/addbutton-component";
 import "./addtaskform-styles.css";
+import { useDispatch } from "react-redux";
 
 const AddTaskForm = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [subtask, setSubTask] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState("");
+  const [subtasks, setSubTasks] = useState([""]);
+  const [selectedStatus, setSelectedStatus] = useState("Todo");
+  const columns = ["Todo", "Doing", "Done"];
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const taskMap = {
+      title: title,
+      description: description,
+      subtasks: subtasks,
+      column: selectedStatus,
+    };
     console.log(title);
-    console.log(description);
   };
 
-  const addToSubTasks = (value) => value;
+  const addToSubTasksList = (index, value) => {
+    const newList = subtasks.concat();
+    newList[index] = value;
+    console.log(newList);
+    setSubTasks(newList);
+  };
 
+  const addSubtaskHandler = (e) => {
+    e.preventDefault();
+    const newList = subtasks.concat().concat("");
+    console.log(newList);
+    setSubTasks(newList);
+  };
+
+  const removeSubTask = (index) => {
+    let newList = subtasks.concat();
+    newList = [...newList.slice(0, index), ...newList.slice(index + 1)];
+    setSubTasks(newList);
+  };
   return (
     <form onSubmit={handleSubmit} className="addtask-form">
       <div className="addtask-title">
@@ -38,35 +64,53 @@ const AddTaskForm = () => {
       </div>
 
       <div className="addtask-subtasks">
-        <label htmlFor="subtask">Subtasks</label>
-        <input
+        <label htmlFor="subtasks">Subtasks</label>
+        {subtasks.map((element, index) => {
+          return (
+            <div className="subtask-div">
+              <input
+                type="text"
+                placeholder="e.g Make Coffee"
+                id="subtasks"
+                value={element}
+                onChange={(e) => addToSubTasksList(index, e.target.value)}
+              />
+              <span
+                class="material-symbols-rounded"
+                onClick={() => removeSubTask(index)}
+              >
+                close
+              </span>
+            </div>
+          );
+        })}
+
+        {/* <input
           type="text"
-          id="subtask"
+          id="subtasks"
           value={subtask}
-          onChange={(e) => addToSubTasks(e.target.value)}
-        />
-        <input
-          type="text"
-          id="subtask"
-          value={subtask}
-          onChange={(e) => addToSubTasks(e.target.value)}
-        />
+          onChange={(e) => addToSubTasksList(e.target.value)}
+        /> */}
       </div>
-      <AddButton text={"+ Add New Subtask"} button_type={"add-subtask"} />
+      <AddButton
+        text={"+ Add New Subtask"}
+        button_type={"add-subtask"}
+        onTap={addSubtaskHandler}
+      />
 
       <div className="addtask-status">
         <label htmlFor="status">Status</label>
-        <select
-          id="status"
-          value={selectedStatus}
-          onChange={(e) => setSelectedStatus(e.target.value)}
-        >
-          <option value="">Select a status</option>
-          <option value="status1">ToDos</option>
-          <option value="">Select a status</option>
-          <option value="">Select a status</option>
-          <option value="">Select a status</option>
-        </select>
+        <div className="custom-select">
+          <select
+            id="status"
+            value={selectedStatus}
+            onChange={(e) => setSelectedStatus(e.target.value)}
+          >
+            {columns.map((element) => (
+              <option value={element}>{element}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <AddButton
