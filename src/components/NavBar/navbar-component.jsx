@@ -25,7 +25,11 @@ const NavBar = () => {
           <h2>Platform Launch</h2>
         </div>
         <div className="nav__actions">
-          <AddButton text={`+ Add New Task`} onTap={onClickAddNewTask} />
+          <AddButton
+            text={`+ Add New Task`}
+            onTap={onClickAddNewTask}
+            button_type={"addbutton"}
+          />
           <span class="material-symbols-rounded">more_vert</span>
         </div>
       </nav>

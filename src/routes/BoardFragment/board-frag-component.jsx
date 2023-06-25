@@ -10,7 +10,7 @@ import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
 
 const BoardFragment = () => {
   const dispatch = useDispatch();
-  const isSideBarOpen = useSelector(selectIsSideBarOpen)
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
   const boardDataList = useSelector(selectBoardData);
 
   const onClickAddColumn = () => {
@@ -29,12 +29,16 @@ const BoardFragment = () => {
       ) : (
         <div className="centered-info">
           <p>This board is empty. Create a new column to get started.</p>
-          <AddButton text={`+ Add New Column`} onTap={onClickAddColumn} />
+          <AddButton
+            text={`+ Add New Column`}
+            onTap={onClickAddColumn}
+            button_type={"addbutton"}
+          />
         </div>
       )}
-      {
-        boardDataList.length> 0 && <TasksColumn isAdder={true} onTap={onClickAddColumn}/> 
-      }
+      {boardDataList.length > 0 && (
+        <TasksColumn isAdder={true} onTap={onClickAddColumn} />
+      )}
     </div>
   );
 };
