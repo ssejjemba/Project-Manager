@@ -6,7 +6,6 @@ import {
 import "./modal-styles.css";
 import { showChosenModalAction } from "../../store/modal/modal-actions";
 import AddTaskForm from "../Forms/addtaskform-component";
-import { useEffect } from "react";
 
 const CustomModal = () => {
   const dispatch = useDispatch();

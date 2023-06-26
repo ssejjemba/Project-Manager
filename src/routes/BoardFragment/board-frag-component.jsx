@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import AddButton from "../../components/AddButton/addbutton-component";
 import "./board-frag-styles.css";
-import { SidebarContext } from "../../contexts/sidebar-context";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBoardData } from "../../store/boardFragment/boardFrag-selectors";
 import TasksColumn from "../../components/TasksColumn/taskcolumn-component";
@@ -11,20 +9,25 @@ import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
 const BoardFragment = () => {
   const dispatch = useDispatch();
   const isSideBarOpen = useSelector(selectIsSideBarOpen);
-  const boardDataList = useSelector(selectBoardData);
+  const boardDataMap = useSelector(selectBoardData);
+  const boardDataLength = Object.keys(boardDataMap).length;
 
   const onClickAddColumn = () => {
-    dispatch(addColumnAction(boardDataList));
+    dispatch(addColumnAction(boardDataMap));
   };
+
   return (
     <div
       className={`fragment-container ${isSideBarOpen ? "sidebar-open" : ""} ${
-        boardDataList == 0 ? "add-flex" : ""
+        boardDataLength == 0 ? "add-flex" : ""
       }`}
     >
-      {boardDataList.length > 0 ? (
-        boardDataList.map((eachColumn) => (
-          <TasksColumn key={eachColumn.id} columnData={eachColumn} />
+      {boardDataLength > 0 ? (
+        Object.keys(boardDataMap).map((eachColumn) => (
+          <TasksColumn
+            key={boardDataMap[eachColumn].id}
+            columnData={boardDataMap[eachColumn]}
+          />
         ))
       ) : (
         <div className="centered-info">
@@ -36,7 +39,7 @@ const BoardFragment = () => {
           />
         </div>
       )}
-      {boardDataList.length > 0 && (
+      {boardDataLength > 0 && (
         <TasksColumn isAdder={true} onTap={onClickAddColumn} />
       )}
     </div>

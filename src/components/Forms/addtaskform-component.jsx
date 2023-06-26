@@ -1,15 +1,18 @@
 import { useState } from "react";
 import AddButton from "../AddButton/addbutton-component";
 import "./addtaskform-styles.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBoardData } from "../../store/boardFragment/boardFrag-selectors";
+import { addTaskAction } from "../../store/boardFragment/boardFrag-actions";
 
 const AddTaskForm = () => {
   const dispatch = useDispatch();
+  const boardDataMap = useSelector(selectBoardData);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [subtasks, setSubTasks] = useState([""]);
-  const [selectedStatus, setSelectedStatus] = useState("Todo");
-  const columns = ["Todo", "Doing", "Done"];
+  const columns = Object.keys(boardDataMap);
+  const [selectedStatus, setSelectedStatus] = useState(columns[0]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,9 +20,10 @@ const AddTaskForm = () => {
       title: title,
       description: description,
       subtasks: subtasks,
-      column: selectedStatus,
+      columnName: selectedStatus,
     };
-    console.log(title);
+    console.log(taskMap);
+    dispatch(addTaskAction(boardDataMap, selectedStatus, taskMap));
   };
 
   const addToSubTasksList = (index, value) => {
@@ -106,8 +110,8 @@ const AddTaskForm = () => {
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
           >
-            {columns.map((element) => (
-              <option value={element}>{element}</option>
+            {columns.map((element,index) => (
+              <option key={index} value={element}>{element}</option>
             ))}
           </select>
         </div>

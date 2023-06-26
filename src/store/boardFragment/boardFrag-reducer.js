@@ -1,19 +1,19 @@
 import { BOARDFRAG_ACTION_TYPES } from "./boardFrag-types";
-
-// boardData = [
-//   {
+//  ################ DATA SHAPE
+// boardData = {
+//   Todo:{
 //     id: 1,
 //     columnName: "Todo",
-//     Tasks: [
-//       {
+//     Tasks: {
+//       'Start x': {
 //         taskName: "Start x",
 //         subtasks: [],
 //       },
-//     ],
+//     },
 //   },
-// ];
+// };
 export const BOARD_FRAG_INITIAL_STATE = {
-  boardData: [],
+  boardData: {},
   boardName: "Platform Launch",
 };
 
