@@ -13,8 +13,9 @@ export const addColumnAction = (boardData) => {
 };
 
 export const addTaskAction = (boardData, columnName, taskData) => {
+  const newBoardData = {...boardData}
   const taskName = taskData.title;
-  boardData[columnName].tasks[taskName] = taskData;
-  console.log(boardData);
-  return createAction(BOARDFRAG_ACTION_TYPES.ADD_TASK, boardData);
+  newBoardData[columnName].tasks[taskName] = taskData;
+  console.log(newBoardData);
+  return createAction(BOARDFRAG_ACTION_TYPES.ADD_TASK, newBoardData);
 };
