@@ -10,6 +10,7 @@ import { BOARDFRAG_ACTION_TYPES } from "./boardFrag-types";
         // id: taskId,
         // description: description,
         // subtasks: []
+      //  completedSubtasks: []
         // columnName: selectedStatus,
 //       },
 //     },

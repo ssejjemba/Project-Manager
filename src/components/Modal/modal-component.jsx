@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectIsModalVisible,
+  selectModalClickedData,
   selectModalFormName,
 } from "../../store/modal/modal-selectors";
 import "./modal-styles.css";
@@ -8,14 +9,23 @@ import { showChosenModalAction } from "../../store/modal/modal-actions";
 import AddTaskForm from "../Forms/addtaskform-component";
 import { MODAL_FORM_TYPES } from "../Forms/form-types";
 import TaskProgressForm from "../Forms/taskprogform-component";
+import { selectBoardData } from "../../store/boardFragment/boardFrag-selectors";
+import { editTaskProgressAction } from "../../store/boardFragment/boardFrag-actions";
 
 const CustomModal = () => {
   const dispatch = useDispatch();
   const isModalSeen = useSelector(selectIsModalVisible);
   const formName = useSelector(selectModalFormName);
+  const modalData = useSelector(selectModalClickedData);
+  const boardData = useSelector(selectBoardData);
   const dangerLevel = "normal";
+  let hasActions = false;
 
   const onClickOverlay = () => {
+    if(modalData.noSubmitButton && modalData.isTaskData){ //Form had no submit button
+      console.log(boardData)
+      dispatch(editTaskProgressAction(boardData, modalData))
+    }
     dispatch(showChosenModalAction({ formName: MODAL_FORM_TYPES.EMPTY, isModalSeen: false, clickedData: {} })); // will always remove overlay
   };
 
@@ -29,6 +39,7 @@ const CustomModal = () => {
       break;
     case MODAL_FORM_TYPES.TASK_PROGRESS:
       formChoice = <TaskProgressForm />
+      hasActions = true;
       break;
     default:
       formChoice = formChoice; 
@@ -48,6 +59,7 @@ const CustomModal = () => {
                 }`}
               >
                 {formName}
+                {hasActions?<span>ellipsis</span>:<></>}
               </div>
               {formChoice}
             </div>

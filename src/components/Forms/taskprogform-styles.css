@@ -12,20 +12,38 @@
 .progress-subtasks > label{
     color: var(--color-medium-grey);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .checkbox-div{
     background-color: var(--color-light-grey-light);
     padding: 0.8rem;
-    margin-bottom: 0.8rem;
+    margin: 0.8rem 0;
     border-radius: 0.6rem;
-
+    display: flex;
+    align-items: center;
 }
 
 .checkbox-div input{
-    background-color: var(--color-main-purple);
-    width: 10px;
-    height: 10px;
+    border: 1px solid var(--color-medium-grey);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.1rem;
+    margin-right: 0.8rem;
+}
 
+.checkbox-div input:checked{
+    background-color: var(--color-main-purple);
+    width: 1rem;
+    height: 1rem;
+}
+.checkbox-div span{
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--color-blue2-light);
+}
+.checkbox-div span.strikethrough{
+    color: var(--color-medium-grey);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
 }

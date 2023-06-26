@@ -22,6 +22,7 @@ const AddTaskForm = () => {
       title: title,
       description: description,
       subtasks: subtasks,
+      completedSubtasks: [],
       columnName: selectedStatus,
     };
     console.log(taskMap);
