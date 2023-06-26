@@ -11,3 +11,8 @@ export const selectModalFormName = createSelector(
   [selectModalReducer],
   (newReducerSlice) => newReducerSlice.formName
 );
+
+export const selectModalClickedData = createSelector(
+  [selectModalReducer],
+  (newReducerSlice) => newReducerSlice.clickedData
+)

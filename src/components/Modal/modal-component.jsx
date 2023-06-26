@@ -7,6 +7,7 @@ import "./modal-styles.css";
 import { showChosenModalAction } from "../../store/modal/modal-actions";
 import AddTaskForm from "../Forms/addtaskform-component";
 import { MODAL_FORM_TYPES } from "../Forms/form-types";
+import TaskProgressForm from "../Forms/taskprogform-component";
 
 const CustomModal = () => {
   const dispatch = useDispatch();
