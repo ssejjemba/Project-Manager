@@ -7,6 +7,9 @@
     height: 60vh;
     width: 280px;
     background-color: var(--color-new-column);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 .column-content.margin-top{
     margin-top: 2rem;

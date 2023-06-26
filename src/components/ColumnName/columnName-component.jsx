@@ -4,8 +4,8 @@ const ColumnName = (props) => {
     const {name, isOnEdit, circleColor} = props; 
   return (
   <div className="board-info">
-    {/* {circleColor &&} */}
-    <div className='circle-small'></div>
+    {circleColor &&  <div className='circle-small'></div>}
+   
     {name}</div>);
 };
 

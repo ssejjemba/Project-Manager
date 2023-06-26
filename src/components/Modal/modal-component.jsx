@@ -6,6 +6,7 @@ import {
 import "./modal-styles.css";
 import { showChosenModalAction } from "../../store/modal/modal-actions";
 import AddTaskForm from "../Forms/addtaskform-component";
+import { MODAL_FORM_TYPES } from "../Forms/form-types";
 
 const CustomModal = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,24 @@ const CustomModal = () => {
   const dangerLevel = "normal";
 
   const onClickOverlay = () => {
-    dispatch(showChosenModalAction({ formName: "", isModalSeen: false })); // will always remove overlay
+    dispatch(showChosenModalAction({ formName: MODAL_FORM_TYPES.EMPTY, isModalSeen: false, clickedData: {} })); // will always remove overlay
   };
 
   //kill body scroll when modal is seen
   document.body.classList.add(isModalSeen ? "active-modal" : "body");
+
+  let formChoice = <div>Done</div>;
+  switch(formName){
+    case MODAL_FORM_TYPES.ADD_TASK:
+      formChoice = <AddTaskForm />
+      break;
+    case MODAL_FORM_TYPES.TASK_PROGRESS:
+      formChoice = <TaskProgressForm />
+      break;
+    default:
+      formChoice = formChoice; 
+      break;
+  }
 
   return (
     <>
@@ -34,7 +48,7 @@ const CustomModal = () => {
               >
                 {formName}
               </div>
-              <AddTaskForm />
+              {formChoice}
             </div>
           </div>
         </>

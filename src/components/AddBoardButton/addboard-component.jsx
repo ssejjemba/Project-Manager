@@ -4,6 +4,7 @@ import BoardLink from "../BoardLink/boardlink-component";
 import "./addboard-styles.css";
 import { useDispatch } from "react-redux";
 import { showChosenModalAction } from "../../store/modal/modal-actions";
+import { MODAL_FORM_TYPES } from "../Forms/form-types";
 
 const AddBoardButton = (props) => {
   const { text, isActive, textColor } = props;
@@ -11,7 +12,7 @@ const AddBoardButton = (props) => {
 
   const addBoardHandler = () => {
     dispatch(
-      showChosenModalAction({ formName: "Add New Board", isModalSeen: true })
+      showChosenModalAction({ formName: MODAL_FORM_TYPES.ADD_BOARD, isModalSeen: true, clickedData: {} })
     );
   };
 

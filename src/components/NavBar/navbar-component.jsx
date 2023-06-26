@@ -4,6 +4,7 @@ import CompanyLogo from "../CompanyLogo/companylogo-component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsSideBarOpen } from "../../store/appState/appState-selectors";
 import { showChosenModalAction } from "../../store/modal/modal-actions";
+import { MODAL_FORM_TYPES } from "../Forms/form-types";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const NavBar = () => {
 
   const onClickAddNewTask = () => {
     dispatch(
-      showChosenModalAction({ formName: "Add New Task", isModalSeen: true })
+      showChosenModalAction({ formName: MODAL_FORM_TYPES.ADD_TASK, isModalSeen: true, clickedData:{} })
     );
   };
   return (

@@ -16,7 +16,9 @@ const AddTaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const taskId = Object.keys(boardDataMap[selectedStatus].tasks).length + 1;
     const taskMap = {
+      id: taskId,
       title: title,
       description: description,
       subtasks: subtasks,
@@ -110,8 +112,10 @@ const AddTaskForm = () => {
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
           >
-            {columns.map((element,index) => (
-              <option key={index} value={element}>{element}</option>
+            {columns.map((element, index) => (
+              <option key={index} value={element}>
+                {element}
+              </option>
             ))}
           </select>
         </div>

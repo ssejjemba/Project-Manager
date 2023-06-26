@@ -17,5 +17,5 @@ export const addTaskAction = (boardData, columnName, taskData) => {
   const taskName = taskData.title;
   newBoardData[columnName].tasks[taskName] = taskData;
   console.log(newBoardData);
-  return createAction(BOARDFRAG_ACTION_TYPES.ADD_TASK, newBoardData);
+  return createAction(BOARDFRAG_ACTION_TYPES.SUBMIT_ADD_TASK, newBoardData);
 };

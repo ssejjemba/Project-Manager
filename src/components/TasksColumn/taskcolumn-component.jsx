@@ -6,11 +6,11 @@ const TasksColumn = ({ isAdder, columnData, onTap }) => {
   const tasksList = !isAdder ? Object.keys(columnData.tasks) : [];
   return (
     <div className="column-container">
-      {columnData && <ColumnName name={"TODO (4)"} circleColor={"blue"} />}
+      {columnData && <ColumnName name={`${columnData.columnName} (${tasksList.length})`} circleColor={"blue"} />}
       <div className={`column-content ${columnData ? "" : "margin-top"}`}>
         {tasksList.length > 0 ? (
-          tasksList.map((eachTitle) => (
-            <TaskCard data={columnData.tasks[eachTitle]} />
+          tasksList.map((eachTitle, index) => (
+            <TaskCard key={index} data={columnData.tasks[eachTitle]} />
           ))
         ) : isAdder ? (
           <div className="sidebar-hide">

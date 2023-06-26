@@ -6,8 +6,11 @@ import { BOARDFRAG_ACTION_TYPES } from "./boardFrag-types";
 //     columnName: "Todo",
 //     Tasks: {
 //       'Start x': {
-//         taskName: "Start x",
-//         subtasks: [],
+//         title: title
+        // id: taskId,
+        // description: description,
+        // subtasks: []
+        // columnName: selectedStatus,
 //       },
 //     },
 //   },
@@ -26,7 +29,7 @@ export const boardFragReducer = (
   switch (type) {
     case BOARDFRAG_ACTION_TYPES.ADD_COLUMN:
       return { ...state, boardData: payload };
-    case BOARDFRAG_ACTION_TYPES.ADD_TASK:
+    case BOARDFRAG_ACTION_TYPES.SUBMIT_ADD_TASK:
       return { ...state, boardData: payload };
     default:
       return state;
