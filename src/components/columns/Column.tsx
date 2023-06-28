@@ -21,7 +21,7 @@ const Column: React.FC<ColumnProps> = ({ column, tasks, index }) => {
       <Droppable droppableId={column.id}>
         {(provided) => (
           <div
-            className="mt-10 w-full h-full flex flex-col gap-10"
+            className="mt-10 w-full h-full flex flex-col gap-10 select-none"
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
