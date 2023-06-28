@@ -7,6 +7,7 @@ type Theme = "light" | "dark";
 interface Settings {
   theme: Theme;
   activeBoardId: string | null;
+  isSideBarShown: boolean;
   // Add more settings properties here
 }
 
@@ -14,6 +15,7 @@ export class SettingsStore {
   settings: Settings = {
     theme: "light",
     activeBoardId: null,
+    isSideBarShown: true,
     // Initialize other settings properties here
   };
 
@@ -22,12 +24,24 @@ export class SettingsStore {
       settings: observable,
       setTheme: action,
       saveActiveBoardId: action,
+      showSideBar: action,
+      hideSideBar: action,
     });
     this.loadSettings();
   }
 
   setTheme = (theme: Theme): void => {
     this.settings.theme = theme;
+    this.saveSettings();
+  };
+
+  showSideBar = () => {
+    this.settings.isSideBarShown = true;
+    this.saveSettings();
+  };
+
+  hideSideBar = () => {
+    this.settings.isSideBarShown = false;
     this.saveSettings();
   };
 

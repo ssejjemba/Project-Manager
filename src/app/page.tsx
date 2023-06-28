@@ -3,6 +3,7 @@ import Dashboard from "@/components/dashboard/Dashboard";
 import Header from "@/components/header/Header";
 import Loading from "@/components/loading/Loading";
 import SideBar from "@/components/sidebar/Sidebar";
+import SidebarControl from "@/components/sidebar/SidebarControl";
 import { useStore } from "@/hooks/useStore";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
@@ -38,6 +39,7 @@ function Home() {
   return (
     <div className={`h-screen w-screen flex ${theme === "dark" ? "dark" : ""}`}>
       <SideBar />
+      <SidebarControl />
       <main className="flex flex-grow flex-col min-w-0 h-full bg-lightBg dark:bg-darkBg">
         <Header />
         <Dashboard />

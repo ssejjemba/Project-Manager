@@ -5,7 +5,6 @@ import SideBarHeader from "./SidebarHeader";
 import SidebarItem from "./SidebarItem";
 import { IconsPath } from "@/constants/icons";
 import Switch from "../switch/Switch";
-import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "@/hooks/useStore";
 
@@ -13,11 +12,18 @@ function SideBar() {
   const { settingsStore, boardsStore } = useStore();
   const { boards, activeBoardId, setActiveBoard } = boardsStore;
   const {
-    settings: { theme },
+    settings: { theme, isSideBarShown },
     setTheme,
+    hideSideBar,
   } = settingsStore;
   return (
-    <aside className="flex flex-col h-full w-1/5 max-w-lg min-w-[28rem] bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines">
+    <aside
+      className={`flex flex-col h-full transition-[width,opacity] ease-linear bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines ${
+        isSideBarShown
+          ? "w-1/5 opacity-1 max-w-lg min-w-[28rem]"
+          : "w-0 opacity-0 pointer-events-none"
+      }`}
+    >
       <SideBarHeader />
       <div className="flex h-full flex-col mr-10">
         <div className="h-20 w-full flex pl-12 items-center">
@@ -84,7 +90,7 @@ function SideBar() {
             </svg>
           </div>
           <div className="flex items-center h-20 w-full">
-            <button className="flex">
+            <button onClick={hideSideBar} className="flex">
               <svg
                 width="18"
                 height="16"
