@@ -18,11 +18,16 @@ function SideBar() {
   } = settingsStore;
   return (
     <aside
-      className={`flex flex-col h-full transition-[width,opacity] ease-linear bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines ${
+      className={`flex flex-col h-full max-w-lg bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines ${
         isSideBarShown
-          ? "w-1/5 opacity-1 max-w-lg min-w-[28rem]"
-          : "w-0 opacity-0 pointer-events-none"
+          ? "w-1/5 opacity-1 min-w-[28rem] visible"
+          : "w-0 opacity-0 min-w-0 pointer-events-none border-r-0 invisible"
       }`}
+      style={{
+        transition: !isSideBarShown
+          ? "width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),  min-width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s cubic-bezier(0.000, 1.355, 0.010, 0.805), visibility 0.8s"
+          : "width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),  min-width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s cubic-bezier(0.955, 0.070, 1.000, -0.200), visibility 0.2s",
+      }}
     >
       <SideBarHeader />
       <div className="flex h-full flex-col mr-10">
