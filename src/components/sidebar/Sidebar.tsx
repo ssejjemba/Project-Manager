@@ -17,7 +17,7 @@ function SideBar() {
     setTheme,
   } = settingsStore;
   return (
-    <aside className="flex flex-col h-full w-1/5 max-w-lg bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines">
+    <aside className="flex flex-col h-full w-1/5 max-w-lg min-w-[28rem] bg-white dark:bg-darkGrey border-r border-lightLines dark:border-darkLines">
       <SideBarHeader />
       <div className="flex h-full flex-col mr-10">
         <div className="h-20 w-full flex pl-12 items-center">
