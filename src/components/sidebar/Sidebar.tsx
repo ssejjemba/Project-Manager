@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import SideBarHeader from "./SidebarHeader";
 import SidebarItem from "./SidebarItem";
 import { IconsPath } from "@/constants/icons";

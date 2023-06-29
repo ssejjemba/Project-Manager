@@ -1,5 +1,12 @@
-import { makeObservable, observable, action, runInAction } from "mobx";
+import {
+  makeObservable,
+  observable,
+  action,
+  runInAction,
+  computed,
+} from "mobx";
 import { RootStore } from "./root.store";
+import { DraggableLocation } from "react-beautiful-dnd";
 
 export interface Task {
   id: string;
@@ -7,6 +14,7 @@ export interface Task {
   columnId: string;
   title: string;
   description: string;
+  order: number;
   meta: {
     date: string;
     author: string;
@@ -30,6 +38,7 @@ interface PartialTask {
   columnId?: string;
   title?: string;
   description?: string;
+  order?: number;
   meta?: {
     date: string;
     author: string;
@@ -59,7 +68,17 @@ export class TaskStore {
       createTask: action,
       updateTask: action,
       deleteTask: action,
+      getTasksByColumnId: computed,
+      moveTask: action,
     });
+  }
+
+  get getTasksByColumnId(): (columnId: string) => Task[] {
+    return (columnId: string) => {
+      return this.tasks
+        .filter((task) => task.columnId === columnId)
+        .sort((a, b) => a.order - b.order);
+    };
   }
 
   fetchTasks = async (boardId: string): Promise<void> => {
@@ -89,12 +108,31 @@ export class TaskStore {
     columnId: string,
     partialTask: PartialTask = {}
   ): void => {
+    const board = this.rootStore.boardsStore.boards.find(
+      (board) => board.id === boardId
+    );
+    if (!board) {
+      console.error("Board not found");
+      return;
+    }
+
+    const column = board.columns.find((column) => column.id === columnId);
+    if (!column) {
+      console.error("Column not found");
+      return;
+    }
+
+    const tasksInColumn = this.tasks.filter(
+      (task) => task.columnId === columnId
+    );
+    const order = tasksInColumn.length + 1;
     const newTask: Task = {
       id: generateUniqueId(),
       boardId,
       columnId,
       title: partialTask.title || "",
       description: partialTask.description || "",
+      order,
       meta: {
         date: partialTask.meta?.date || "",
         author: partialTask.meta?.author || "",
@@ -108,6 +146,102 @@ export class TaskStore {
 
     runInAction(() => {
       this.tasks.push(newTask);
+    });
+  };
+
+  moveTask = (
+    source: DraggableLocation,
+    destination: DraggableLocation
+  ): void => {
+    const { index: sourceIndex, droppableId: sourceColumnId } = source;
+    const { index: destIndex, droppableId: destColumnId } = destination;
+
+    if (sourceColumnId === destColumnId && sourceIndex === destIndex) {
+      return; // No change in position
+    }
+
+    const sourceColumn = this.rootStore.boardsStore.activeBoard!.columns.find(
+      (column) => column.id === sourceColumnId
+    );
+    const destColumn = this.rootStore.boardsStore.activeBoard!.columns.find(
+      (column) => column.id === destColumnId
+    );
+
+    if (!sourceColumn || !destColumn) {
+      console.error("Invalid source or destination column");
+      return;
+    }
+
+    runInAction(() => {
+      const movedTask = this.tasks.find(
+        (task) =>
+          task.columnId === sourceColumnId && task.order === sourceIndex + 1
+      );
+
+      if (!movedTask) {
+        console.error("Invalid moved task");
+        return;
+      }
+
+      // Update the columnId and order of the moved task
+      movedTask.columnId = destColumnId;
+      movedTask.order = destIndex + 1;
+
+      if (sourceColumn === destColumn) {
+        // Move within the same column
+        this.reorderTasksWithinColumn(destColumnId);
+      } else {
+        // Move across columns
+        this.reorderTasksAcrossColumns(sourceColumn, destColumn);
+      }
+    });
+  };
+
+  reorderTasksWithinColumn = (columnId: string): void => {
+    const tasksInColumn = this.tasks.filter(
+      (task) => task.columnId === columnId
+    );
+    const sortedTasks = tasksInColumn.slice().sort((a, b) => a.order - b.order);
+
+    sortedTasks.forEach((task, index) => {
+      if (task.order !== index + 1) {
+        // Update the order of the task
+        task.order = index + 1;
+        this.updateTask(task);
+      }
+    });
+  };
+
+  reorderTasksAcrossColumns = (
+    sourceColumn: Column,
+    destColumn: Column
+  ): void => {
+    // Update the order of tasks in the source column
+    const sourceTasks = this.tasks.filter(
+      (task) => task.columnId === sourceColumn.id
+    );
+    const sortedSourceTasks = sourceTasks
+      .slice()
+      .sort((a, b) => a.order - b.order);
+
+    sortedSourceTasks.forEach((task, index) => {
+      if (task.order !== index + 1) {
+        task.order = index + 1;
+        this.updateTask(task);
+      }
+    });
+
+    // Update the order of tasks in the destination column
+    const destTasks = this.tasks.filter(
+      (task) => task.columnId === destColumn.id
+    );
+    const sortedDestTasks = destTasks.slice().sort((a, b) => a.order - b.order);
+
+    sortedDestTasks.forEach((task, index) => {
+      if (task.order !== index + 1) {
+        task.order = index + 1;
+        this.updateTask(task);
+      }
     });
   };
 

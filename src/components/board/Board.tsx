@@ -13,7 +13,14 @@ import Column from "../columns/Column";
 function Board() {
   const {
     boardsStore: { activeBoard },
-    taskStore: { fetchTasks, isLoading, tasks, updateTask },
+    taskStore: {
+      fetchTasks,
+      isLoading,
+      tasks,
+      updateTask,
+      getTasksByColumnId,
+      moveTask,
+    },
   } = useStore();
   useEffect(() => {
     fetchTasks(activeBoard?.id!);
@@ -26,12 +33,9 @@ function Board() {
       return;
     }
 
-    if (source.droppableId !== destination.droppableId) {
-      const task = tasks.find((task) => task.id === result.draggableId);
-      if (task) {
-        updateTask({ ...task, columnId: destination.droppableId });
-      }
-    }
+    console.log(JSON.stringify(result, null, 2));
+
+    moveTask(source, destination);
   };
 
   if (isLoading) {
@@ -41,25 +45,16 @@ function Board() {
   return (
     <div className="flex w-full h-full pl-[2.4rem] pt-10 pb-20">
       <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId={activeBoard?.id!}>
-          {(provided) => (
-            <div
-              className="flex gap-10 w-full h-full overflow-auto"
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {activeBoard?.columns.map((column, index) => (
-                <Column
-                  key={column.id}
-                  column={column}
-                  tasks={tasks.filter((task) => task.columnId === column.id)}
-                  index={index}
-                />
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+        <div className="flex gap-10 w-full h-full overflow-auto">
+          {activeBoard?.columns.map((column, index) => (
+            <Column
+              key={column.id}
+              column={column}
+              tasks={getTasksByColumnId(column.id)}
+              index={index}
+            />
+          ))}
+        </div>
       </DragDropContext>
     </div>
   );
