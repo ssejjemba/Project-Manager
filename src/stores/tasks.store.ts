@@ -185,14 +185,14 @@ export class TaskStore {
 
       // Update the columnId and order of the moved task
       movedTask.columnId = destColumnId;
-      movedTask.order = destIndex + 1;
+      // movedTask.order = destIndex + 1;
 
       if (sourceColumn === destColumn) {
         // Move within the same column
         this.reorderTasksWithinColumn(destColumnId);
       } else {
         // Move across columns
-        this.reorderTasksAcrossColumns(sourceColumn, destColumn);
+        this.reorderTasksAcrossColumns(source, destination);
       }
     });
   };
@@ -213,34 +213,42 @@ export class TaskStore {
   };
 
   reorderTasksAcrossColumns = (
-    sourceColumn: Column,
-    destColumn: Column
+    source: DraggableLocation,
+    destination: DraggableLocation
   ): void => {
-    // Update the order of tasks in the source column
-    const sourceTasks = this.tasks.filter(
-      (task) => task.columnId === sourceColumn.id
-    );
-    const sortedSourceTasks = sourceTasks
-      .slice()
-      .sort((a, b) => a.order - b.order);
+    const { index: sourceIndex, droppableId: sourceColumnId } = source;
+    const { index: destIndex, droppableId: destColumnId } = destination;
 
-    sortedSourceTasks.forEach((task, index) => {
-      if (task.order !== index + 1) {
+    const sortedSourceTasks = this.getTasksByColumnId(sourceColumnId);
+
+    const sortedDestTasks = this.getTasksByColumnId(destColumnId);
+
+    const [taskToMove] = sortedSourceTasks.splice(sourceIndex, 1);
+    sortedDestTasks.splice(destIndex, 0, taskToMove);
+
+    sortedDestTasks.forEach((task, index) => {
+      if (task) {
+        console.log(
+          `destination swapping tasks:: ${task.title} to order ${index + 1}`
+        );
+        // Update the order of the task
         task.order = index + 1;
         this.updateTask(task);
+      } else {
+        console.error(task);
       }
     });
 
-    // Update the order of tasks in the destination column
-    const destTasks = this.tasks.filter(
-      (task) => task.columnId === destColumn.id
-    );
-    const sortedDestTasks = destTasks.slice().sort((a, b) => a.order - b.order);
-
-    sortedDestTasks.forEach((task, index) => {
-      if (task.order !== index + 1) {
+    sortedSourceTasks.forEach((task, index) => {
+      if (task) {
+        // Update the order of the task
+        console.log(
+          `source swapping tasks:: ${task.title} to order ${index + 1}`
+        );
         task.order = index + 1;
         this.updateTask(task);
+      } else {
+        console.error(task);
       }
     });
   };
