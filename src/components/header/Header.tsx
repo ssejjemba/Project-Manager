@@ -14,7 +14,7 @@ function Header() {
       </h1>
       <div className="h-full flex items-center">
         <Button
-          variant="disabled"
+          variant={activeBoard?.columns.length ? "primary" : "disabled"}
           text="+ Add New Task"
           onClick={console.log}
           className="[&:not(:last-child)]:mr-10"

@@ -2,25 +2,13 @@ import { useStore } from "@/hooks/useStore";
 import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import Loading from "../loading/Loading";
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import Column from "../columns/Column";
 
 function Board() {
   const {
     boardsStore: { activeBoard },
-    taskStore: {
-      fetchTasks,
-      isLoading,
-      tasks,
-      updateTask,
-      getTasksByColumnId,
-      moveTask,
-    },
+    taskStore: { fetchTasks, isLoading, getTasksByColumnId, moveTask },
   } = useStore();
   useEffect(() => {
     fetchTasks(activeBoard?.id!);
@@ -54,6 +42,9 @@ function Board() {
               index={index}
             />
           ))}
+          <button className="h-full mt-14 mr-10 w-[28rem] flex-shrink-0 text-hXL text-medGray rounded-[6px] bg-[linear-gradient(180deg,_#E9EFFA_0%,_rgba(233,_239,_250,_0.50)_100%)] dark:bg-[linear-gradient(180deg,_rgba(43,_44,_55,_0.25)_0%,_rgba(43,_44,_55,_0.13)_100%)]">
+            + New Column
+          </button>
         </div>
       </DragDropContext>
     </div>
