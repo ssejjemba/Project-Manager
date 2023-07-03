@@ -1,5 +1,6 @@
 "use client";
 import Dashboard from "@/components/dashboard/Dashboard";
+import AddTask from "@/components/forms/AddTask";
 import Header from "@/components/header/Header";
 import Loading from "@/components/loading/Loading";
 import SideBar from "@/components/sidebar/Sidebar";
@@ -44,6 +45,7 @@ function Home() {
         <Header />
         <Dashboard />
       </main>
+      <AddTask />
     </div>
   );
 }
