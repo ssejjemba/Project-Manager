@@ -6,6 +6,7 @@ import { Field, Form } from "react-final-form";
 import SelectInput from "../inputs/Select";
 import { useStore } from "@/hooks/useStore";
 import Button from "../buttons/Button";
+import CheckBoxInput from "../inputs/CheckBox";
 
 function AddTaskForm() {
   const {
@@ -41,6 +42,15 @@ recharge the batteries a little."
                 label="Description"
                 component={TextArea}
               />
+              <Field
+                id="add__task__sub_task"
+                name="subtasks[0]"
+                type="checkbox"
+                className="mb-[2.4rem]"
+                label="A new subtask for this task"
+                component={CheckBoxInput}
+              />
+
               <Field
                 id="add__task__column_id"
                 name="columnId"
