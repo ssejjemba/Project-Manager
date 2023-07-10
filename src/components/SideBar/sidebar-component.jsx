@@ -52,7 +52,7 @@ const SideBar = () => {
         </div>
         <div className="sidebar__div3">
           <div className="theme-switch-div">
-            <span class="material-symbols-rounded">light_mode</span>
+            <span className="material-symbols-rounded">light_mode</span>
 
             <div
               className={`slider-switch ${theme == "dark" ? "checked" : ""}`}
@@ -60,13 +60,13 @@ const SideBar = () => {
             >
               <div className="slider"></div>
             </div>
-            <span class="material-symbols-rounded" id="_mode">
+            <span className="material-symbols-rounded" id="_mode">
               night_sight_max
             </span>
           </div>
           <div className="sidebar-hide">
             <button onClick={toggleSideBarHandler}>
-              <span class="material-symbols-rounded nofill">
+              <span className="material-symbols-rounded nofill">
                 visibility_off
               </span>{" "}
               <p>Hide Sidebar</p>
@@ -76,7 +76,7 @@ const SideBar = () => {
       </div>
       <div className={`sidebar__toggle ${isSideBarOpen ? "hide" : ""}`}>
         <button onClick={toggleSideBarHandler}>
-          <span class="material-symbols-rounded">visibility</span>
+          <span className="material-symbols-rounded">visibility</span>
         </button>
       </div>
     </div>

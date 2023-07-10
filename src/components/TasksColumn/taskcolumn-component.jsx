@@ -15,7 +15,7 @@ const TasksColumn = ({ isAdder, columnData, onTap }) => {
         ) : isAdder ? (
           <div className="sidebar-hide">
             <button onClick={onTap}>
-              <span class="material-symbols-rounded nofill">add</span>
+              <span className="material-symbols-rounded nofill">add</span>
               {""}
               <p>New Column</p>
             </button>

@@ -75,7 +75,7 @@ const AddTaskForm = (props) => {
         <label htmlFor="subtasks">Subtasks</label>
         {subtasks.map((element, index) => {
           return (
-            <div className="subtask-div">
+            <div key={index} className="subtask-div">
               <input
                 type="text"
                 placeholder="e.g Make Coffee"
@@ -84,7 +84,7 @@ const AddTaskForm = (props) => {
                 onChange={(e) => addToSubTasksList(index, e.target.value)}
               />
               <span
-                class="material-symbols-rounded"
+                className="material-symbols-rounded"
                 onClick={() => removeSubTask(index)}
               >
                 close

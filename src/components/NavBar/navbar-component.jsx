@@ -31,7 +31,7 @@ const NavBar = () => {
             onTap={onClickAddNewTask}
             button_type={"addbutton"}
           />
-          <span class="material-symbols-rounded">more_vert</span>
+          <span className="material-symbols-rounded">more_vert</span>
         </div>
       </nav>
     </header>
