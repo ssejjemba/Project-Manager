@@ -16,7 +16,7 @@ body.active-modal {
 }
 
 .modal-limiter {
-  height: 90%;
+  height: 80%;
   width: 40%;
   position: absolute;
   top: 50%;
@@ -46,4 +46,27 @@ body.active-modal {
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.modal-options{
+  position: relative;
+  font-size: 1rem;
+  background-color: black;
+  cursor: pointer;
+}
+
+.modal-dialogbox{
+  height: fit-content;
+  width: 100px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  background-color: bisque;
+  z-index: 999;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
 }

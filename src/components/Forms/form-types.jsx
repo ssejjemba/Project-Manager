@@ -3,4 +3,5 @@ export const MODAL_FORM_TYPES = {
   TASK_PROGRESS: "Update Task Progress",
   EMPTY: "",
   ADD_BOARD: "Create New Board",
+  EDIT_TASK: "Edit Task"
 };

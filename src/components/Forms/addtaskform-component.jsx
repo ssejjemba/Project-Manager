@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectBoardData } from "../../store/boardFragment/boardFrag-selectors";
 import { addTaskAction } from "../../store/boardFragment/boardFrag-actions";
 
-const AddTaskForm = () => {
+const AddTaskForm = (props) => {
   const dispatch = useDispatch();
   const boardDataMap = useSelector(selectBoardData);
   const [title, setTitle] = useState("");
@@ -13,6 +13,7 @@ const AddTaskForm = () => {
   const [subtasks, setSubTasks] = useState([""]);
   const columns = Object.keys(boardDataMap);
   const [selectedStatus, setSelectedStatus] = useState(columns[0]);
+  const { isUpdating } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -123,7 +124,7 @@ const AddTaskForm = () => {
       </div>
 
       <AddButton
-        text={"Create New Task"}
+        text={`${isUpdating ? 'Save Changes':'Create New Task'}`}
         button_type={"add-subtask purple"}
         type={"submit"}
       />

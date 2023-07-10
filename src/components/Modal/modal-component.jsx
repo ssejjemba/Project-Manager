@@ -11,6 +11,7 @@ import { MODAL_FORM_TYPES } from "../Forms/form-types";
 import TaskProgressForm from "../Forms/taskprogform-component";
 import { selectBoardData } from "../../store/boardFragment/boardFrag-selectors";
 import { editTaskProgressAction } from "../../store/boardFragment/boardFrag-actions";
+import { useState } from "react";
 
 const CustomModal = () => {
   const dispatch = useDispatch();
@@ -18,31 +19,52 @@ const CustomModal = () => {
   const formName = useSelector(selectModalFormName);
   const modalData = useSelector(selectModalClickedData);
   const boardData = useSelector(selectBoardData);
+  const [isOptionsClicked, setIsOptionsClicked] = useState(false);
   const dangerLevel = "normal";
   let hasActions = false;
 
   const onClickOverlay = () => {
-    if(modalData.noSubmitButton && modalData.isTaskData){ //Form had no submit button
-      console.log(boardData)
-      dispatch(editTaskProgressAction(boardData, modalData))
+    if (modalData.noSubmitButton && modalData.isTaskData) {
+      //Form had no submit button
+      console.log(boardData);
+      dispatch(editTaskProgressAction(boardData, modalData));
     }
-    dispatch(showChosenModalAction({ formName: MODAL_FORM_TYPES.EMPTY, isModalSeen: false, clickedData: {} })); // will always remove overlay
+    dispatch(
+      showChosenModalAction({
+        formName: MODAL_FORM_TYPES.EMPTY,
+        isModalSeen: false,
+        clickedData: {},
+      })
+    ); // will always remove overlay
+  };
+
+  const onClickEditTask = () => {
+    dispatch(
+      showChosenModalAction({
+        formName: MODAL_FORM_TYPES.EDIT_TASK,
+        isModalSeen: true,
+        clickedData: modalData,
+      })
+    );
   };
 
   //kill body scroll when modal is seen
   document.body.classList.add(isModalSeen ? "active-modal" : "body");
 
   let formChoice = <div>Done</div>;
-  switch(formName){
+  switch (formName) {
     case MODAL_FORM_TYPES.ADD_TASK:
-      formChoice = <AddTaskForm />
+      formChoice = <AddTaskForm />;
       break;
     case MODAL_FORM_TYPES.TASK_PROGRESS:
-      formChoice = <TaskProgressForm />
+      formChoice = <TaskProgressForm />;
       hasActions = true;
       break;
+    case MODAL_FORM_TYPES.EDIT_TASK:
+      formChoice = <AddTaskForm isUpdating={true}/>;
+      break;
     default:
-      formChoice = formChoice; 
+      formChoice = formChoice;
       break;
   }
 
@@ -59,7 +81,20 @@ const CustomModal = () => {
                 }`}
               >
                 {formName}
-                {hasActions?<span>ellipsis</span>:<></>}
+                {hasActions ? (
+                  <span className="modal-options" onClick={() => setIsOptionsClicked(!isOptionsClicked)}>
+                    ellipsis
+                    {
+                      isOptionsClicked && (
+                      <div className="modal-dialogbox">
+                        <div className="edititem-div" onClick={onClickEditTask}>Edit Task</div>
+                        <div className="deleteitems-div">Delete Task</div>
+                      </div>
+                    )}
+                  </span>
+                ) : (
+                  <></>
+                )}
               </div>
               {formChoice}
             </div>
